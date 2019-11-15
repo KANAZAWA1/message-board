@@ -110,39 +110,40 @@
         <a class = "logo">KANAZAWA</a>
         <a class="pg_dl" id="i77">注册</a>    
     </div>
-    <form method="post" action="../registered.php">
+    <form method="post" action="./registered.php">
         <div class="left"></div>
         <div class="pg_body">
                 <div class="menu">用户名:</div>
                     <div class="kong">
-                        <input id="text1" type="text" name="username" placeholder="请输入用户名"><span id="div1" class="tian" style="margin-top: 4px">*(为必填)<span>
+                        <input id="text1" type="text" name="username" value="" placeholder="用户名必须为字母、数字与下划线">
+                        <span id="div1" class="tian" style="margin-top: 4px">*(为必填)<span>
                     </div>
                 <div class="menu">密码:</div>
                     <div class="kong">
-                        <input id="text2" type="password" name="password">
+                        <input id="text2" type="password" name="password" value="" placeholder="请输入密码">
                         <span id="div2" class="tian" style="margin-top: 4px">*(为必填)<span>
                     </div>
                 <div class="menu">确认密码:</div>
                     <div class="kong">
-                        <input id="text3" type="password" name="res_password">
+                        <input id="text3" type="password" name="res_password" value="" placeholder="再确认一次密码">
                         <span id="div3" class="tian" style="margin-top: 4px">*(为必填)<span>
                     </div>
                 <div class="menu">电话号码:</div>
                     <div class="kong">
-                        <input id="i5" type="text" name="phone">
+                        <input id="i5" type="text" name="phone" value="" placeholder="请输入电话号">
                         <span id="div4" class="tian" style="margin-top: 4px">*(为必填)<span></span>
                     </div>
                 <div class="menu">邮箱地址:</div>
                     <div class="kong">
-                        <input id="text4" type="text" name="email">
+                        <input id="text4" type="text" name="email" value="" placeholder="请输入邮箱">
                         <span id="div5" class="tian" style="margin-top: 4px">*(为必填)<span>
                     </div>
         </div>
         <center>
         <div class="can">
-            <input type="submit" name="注册" value="注  册">
+            <input type="submit" name="submit" value="注  册">
             <p style="width: 200px;display: inline-block;"></p>
-            <input type="button" name="fh" value="返  回" onclick="window.location.href = '../login.php'"> 
+            <input type="button" name="fh" value="返  回" onclick="window.location.href = './login.php'"> 
         </div>
         </center>
     </form>
