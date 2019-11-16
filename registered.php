@@ -21,12 +21,12 @@ if(isset($_POST['submit'])){  #输入不能为空
         die('手机不合法，请重新注册');
     }
 
-    $check_list = "/into|load_file|0x|outfile|by|substr|base|echo|hex|mid|like|or|char|union|or|select|greatest|%00|_|\'|KANAZAWA|limit|=_| |in|<|>|-|user|\.|\(\)|#|and|if|database|where|concat|insert|having|sleep|hex2bin|chr/i";
-    $checks = ["$user", "$pass", "$res_pass", "$phone", "$email",];
+    $check_list = "/into|load_file|0x|outfile|by|substr|base|echo|hex|mid|like|or|char|union|or|select|greatest|%00|\'|KANAZAWA|limit|=_| |in|<|>|-|user|\.|\(\)|#|and|if|database|where|concat|insert|having|sleep|hex2bin|chr/i";
+    $checks = ["$user", "$pass", "$res_pass", "$phone"];
     foreach($checks as $check){ ##此处膜拜Virink师傅那次的正则小考核，提供的思路
-        preg_match("$check_list", $check, $m);
+        $m = preg_match($check_list, $check);
         if($m){
-            die('SQL injection?');
+            die("$check-.SQL injection?");
         }
     }
     /*Virink师傅小考核给的思路
