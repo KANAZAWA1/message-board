@@ -41,6 +41,33 @@ if(isset($_POST['submit'])){  #输入不能为空
 
         foreach ($emails as $email) {
 	        preg_match('/([\w\-\.]+)@/', $email, $m) && print_r($m[1] . "\n");
-	        preg_match('/([\w\-\.]+)@[\w\-]+(\.[\w\-]+)+/', $email, $m) && print_r($m[1] . "\n");*/
+            preg_match('/([\w\-\.]+)@[\w\-]+(\.[\w\-]+)+/', $email, $m) && print_r($m[1] . "\n");*/
+    
+    $dbservername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "123456";
+    //创建连接
+    $link = mysqli_connect($dbservername, $dbusername, $dbpassword);
+    if(!$link){
+        die('数据库连接失败: " . mysqli_connect_error()');
+    }else{
+        mysqli_select_db($link, 'message~board');
+        $sql = "select * from user where username = '$user'";
+        $res = mysqli_query($link, $sql);
+        $row = mysqli_num_rows($res);
+        if($row > 0){
+            die('用户名已存在，请重新注册！');
+        }else{
+            $time = date('Y-m-d');
+            $sql1 = "insert into user(username, password, phone, email, time) values('$user', '$pass', '$phone', '$email', '$time')";
+            $res1 = mysqli_query($link, $sql1);
+            if($res1){
+                echo "注册成功，请返回登录！";
+            }else{
+                die('数据库异常，请稍后再试！');
+            }
+        }
+    }
+    mysqli_close($link);
 }
 ?>
