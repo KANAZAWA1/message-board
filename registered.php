@@ -1,5 +1,4 @@
 <?php
-session_start();
 header("Content-type: text/html; charset=utf-8");
 include("./moban/registered.html");
 $user = $_POST['username'];
@@ -26,7 +25,7 @@ if(isset($_POST['submit'])){  #输入不能为空
     foreach($checks as $check){ ##此处膜拜Virink师傅那次的正则小考核，提供的思路
         $m = preg_match($check_list, $check);
         if($m){
-            die("$check-.SQL injection?");
+            die("$check-SQL injection?");
         }
     }
     /*Virink师傅小考核给的思路
