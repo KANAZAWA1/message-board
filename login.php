@@ -30,9 +30,8 @@ if(isset($_POST['submit'])){
         $row = mysqli_num_rows($res);
         if($row > 0){
             $person = mysqli_fetch_array($res);
-            $_SESSION[username] = $user;
-            $uid = 
-            $_SESSION[uid] = md5('VKVKVKVKVKVKVKVK');
+            $_SESSION['username'] = $user;
+            $_SESSION['uid'] = md5('VKVKVKVKVKVKVKVK');
             echo "登录成功，PS：请不要禁用JS";
             echo "<script>window.location.href=\"action.php\"</script>";
         }else{
