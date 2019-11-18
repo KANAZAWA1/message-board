@@ -1,6 +1,8 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 include("./moban/registered.html");
+include("./DB.php");
+
 $user = $_POST['username'];
 $pass = $_POST['password'];
 $res_pass = $_POST['res_password'];
@@ -42,11 +44,7 @@ if(isset($_POST['submit'])){  #输入不能为空
 	        preg_match('/([\w\-\.]+)@/', $email, $m) && print_r($m[1] . "\n");
             preg_match('/([\w\-\.]+)@[\w\-]+(\.[\w\-]+)+/', $email, $m) && print_r($m[1] . "\n");*/
     
-    $dbservername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "123456";
-    //创建连接
-    $link = mysqli_connect($dbservername, $dbusername, $dbpassword);
+
     if(!$link){
         die('数据库连接失败: " . mysqli_connect_error()');
     }else{

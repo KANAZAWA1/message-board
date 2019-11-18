@@ -2,6 +2,7 @@
 session_start();
 header("Content-type: text/html; charset=utf-8");
 include("./moban/login.html");
+include("./DB.php");
 
 $user = $_POST['username'];
 $pass = $_POST['password'];
@@ -19,11 +20,7 @@ if(isset($_POST['submit'])){
             die("$check-SQL injection?");
         }
     }
-    $dbservername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "123456";
-    //创建连接
-    $link = mysqli_connect($dbservername, $dbusername, $dbpassword);
+    
     if(!$link){
         die('数据库连接失败: " . mysqli_connect_error()');
     }else{
