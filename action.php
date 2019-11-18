@@ -25,6 +25,7 @@
             <h2>留言信息</h2>
             <table width="100%" border="1" cellpadding="0" cellspacing="0">
                 <tr>
+                    <th>序号</th>
                     <th>留言人</th>
                     <th>留言</th>
                     <th>时间</th>
@@ -37,15 +38,14 @@
                     mysqli_select_db($link, 'message~board');
                     $sql = "select * from message";
                     $res = mysqli_query($link, $sql);
-                    $row = mysqli_fetch_array($res,MYSQLI_ASSOC); //关联数组
-
-                    $messages = $row;
-                    foreach($messages as $message){
-                        echo "<tr>
-                        <td>{$message[1]}
-                        <td>{$message[2]}
-                        <td>{$message[3]}
-                        </tr>";
+                    while($row = mysqli_fetch_array($res)){
+                        $message = "<tr>";
+                        $message .= "<td>".$row['Id']."</td>";
+                        $message .= "<td>".$row['username']."</td>";
+                        $message .= "<td>".$row['text']."</td>";
+                        $message .= "<td>".$row['time']."</td>";
+                        $message .= "</tr>";
+                        echo $message;
                     }
                 ?>
             </table>
