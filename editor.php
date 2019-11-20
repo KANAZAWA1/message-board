@@ -6,6 +6,7 @@ include("./DB.php");
 
 $id = $_GET['id'];
 $text = $_POST['text'];
+
 if(isset($_POST['submit'])){
     if(empty($text)){
         die('修改内容不能为空，请重新修改！');
@@ -21,14 +22,13 @@ if(isset($_POST['submit'])){
     $sql = "select * from message where Id = '$id'";
     $res = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($res);
-    echo $row;
+    //var_dump($sql);die;
     if($row['username'] !== $_SESSION['username']){
-        die("您无法修改他人留言！"."<meta http-equiv='Refresh'content='3;url=./index.php'/>");
-    }
+         die("您无法修改他人留言！"."<meta http-equiv='Refresh'content='3;url=./index.php'/>");
+     }
 
     $sql1 = "update message set text='$text' where Id='$id'";
     $res1 = mysqli_query($link, $sql1);
-
     if($res1){
         echo "修改成功，请返回查看！";
     }else{
