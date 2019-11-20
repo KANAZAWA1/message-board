@@ -44,8 +44,12 @@
                         $message .= "<td>".$row['username']."</td>";
                         $message .= "<td>".$row['text']."</td>";
                         $message .= "<td>".$row['time']."</td>";
-                        $message .= "</tr>";
                         echo $message;
+
+                        $id = $row['Id'];
+                        $user = $row['username'];
+                        echo "<td><a href='./editor.php?id=".$id."'>修改</a>&nbsp&nbsp&nbsp<a href='delete.php?id=".$id."'>删除</a></td>";
+   	                    echo "</tr>";
                     }
                 ?>
             </table>

@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     foreach($checks as $check){ ##此处再膜拜Virink师傅那次的正则小考核，提供的思路，我要做VK师傅的第一舔狗
         $m = preg_match($check_list, $check);
         if($m){
-            die("$check-SQL injection?");
+            die("stop hacking!");
         }
     }
     
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
             $_SESSION['username'] = $user;
             $_SESSION['uid'] = md5('VKVKVKVKVKVKVKVK');
             echo "登录成功，PS：请不要禁用JS";
-            echo "<script>window.location.href=\"action.php\"</script>";
+            echo "<script>window.location.href=\"index.php\"</script>";
         }else{
             die('账户或密码错误，请重新登陆！');
         }

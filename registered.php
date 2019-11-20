@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){  #输入不能为空
     foreach($checks as $check){ ##此处膜拜Virink师傅那次的正则小考核，提供的思路
         $m = preg_match($check_list, $check);
         if($m){
-            die("$check-SQL injection?");
+            die("stop hacking!");
         }
     }
     /*Virink师傅小考核给的思路
