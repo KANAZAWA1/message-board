@@ -15,7 +15,7 @@
                     echo "<br>";
                     echo "<a href = 'loginout.php'>注销</a>";
                 }else{
-                    die("请登录后再查看本页！"."<meta http-equiv='Refresh'content='3;url=./login.php'/>");
+                    die("<script>alert('请登录后再查看本页！')</script>"."<meta http-equiv='Refresh'content='0;url=./login.php'/>");
                 }
             ?>
         </div>
@@ -48,7 +48,7 @@
 
                         $id = $row['Id'];
                         $user = $row['username'];
-                        echo "<td><a href='./editor.php?id=".$id."'>修改</a>&nbsp&nbsp&nbsp<a href='delete.php?id=".$id."'>删除</a></td>";
+                        echo "<td><a href='./editor.php?id=".$id."'>修改</a>&nbsp&nbsp&nbsp<a href='./delete.php?id=".$id."'>删除</a></td>";
    	                    echo "</tr>";
                     }
                 ?>

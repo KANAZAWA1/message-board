@@ -9,8 +9,10 @@
         <?php
         session_start();
         include("./DB.php");
+
         if(!isset($_SESSION['uid']))
         die("请登录后再查看本页！"."<meta http-equiv='Refresh'content='3;url=./login.php'/>");
+
         $id = $_GET['id'];
         $text = $_POST['text'];
         echo "        
@@ -45,19 +47,19 @@
         $row = mysqli_fetch_array($res);
         //var_dump($sql);die;
         if($row['username'] !== $_SESSION['username']){
-         die("您无法修改他人留言！"."<meta http-equiv='Refresh'content='3;url=./index.php'/>");
+         die("<script>alert('您无法修改他人留言！')</script>"."<meta http-equiv='Refresh'content='0;url=./index.php'/>");
         }
 
         $sql1 = "update message set text='$text' where Id='$id'";
         $res1 = mysqli_query($link, $sql1);
         if($res1){
-        echo "修改成功，几秒后将返回消息页面查看！"."<meta http-equiv='Refresh'content='2;url=./index.php'/>";
+            echo "<script>alert('修改成功！')</script>"."<meta http-equiv='Refresh'content='0;url=./index.php'/>";
         }else{
             die('数据库异常，请稍后再试！');
         }
     
         mysqli_close($link);
-}
+        }
         ?>
 
     </body>
