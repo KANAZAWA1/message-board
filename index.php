@@ -16,6 +16,8 @@
                     echo "<br>";
                     echo "<img width='64px' height='64px' src='upload/vk.png' />";
                     echo "<br>";
+                    echo "<a href = 'changepasswd.php'>修改密码</a>";
+                    echo "<br>";
                     echo "<a href = 'loginout.php'>注销</a>";
                 }elseif(isset($_SESSION['uid']) && isset($_SESSION['imgname'])){
                     $imgname = $_SESSION['imgname'];
