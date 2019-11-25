@@ -8,10 +8,22 @@
         <div align="right">
             <?php
                 session_start();
-                if(isset($_SESSION['uid'])){
+                $user = $_SESSION['username'];
+                if(isset($_SESSION['uid']) && !isset($_SESSION['imgname'])){
                     echo "欢迎".$_SESSION['username']."来到KANAZAWA的留言板！";
                     echo "<br>";
-                    echo "<a href = './pcenter.php'>个人中心</a>";
+                    echo "<a href = './upload.php'>修改头像</a>";
+                    echo "<br>";
+                    echo "<img width='64px' height='64px' src='upload/vk.png' />";
+                    echo "<br>";
+                    echo "<a href = 'loginout.php'>注销</a>";
+                }elseif(isset($_SESSION['uid']) && isset($_SESSION['imgname'])){
+                    $imgname = $_SESSION['imgname'];
+                    echo "欢迎".$_SESSION['username']."来到KANAZAWA的留言板！";
+                    echo "<br>";
+                    echo "<a href = './upload.php'>修改头像</a>";
+                    echo "<br>";
+                    echo "<img width='64px' height='64px' src='upload/$imgname' />";
                     echo "<br>";
                     echo "<a href = 'loginout.php'>注销</a>";
                 }else{
